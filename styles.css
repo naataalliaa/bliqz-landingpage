@@ -1,0 +1,129 @@
+/* Reset some basics */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* Keep your existing styles */
+  display: flex;
+  flex-direction: column;   /* Stack logo and form vertically */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+
+.form-wrapper {
+  background: white;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  max-width: 420px;
+  width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.form-wrapper:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+form h2 {
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #4b0082;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #4b0082;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #764ba2;
+  outline: none;
+  box-shadow: 0 0 8px rgba(118, 75, 162, 0.5);
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 2rem;  /* Space between logo and form */
+}
+
+.logo-container img {
+  width: 680px; /* Adjust size smaller and reasonable */
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease;
+}
+
+.logo-container img:hover {
+  transform: scale(1.05);
+}
+
+/* Button */
+button {
+  width: 100%;
+  background: #764ba2;
+  color: white;
+  border: none;
+  padding: 0.85rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 10px rgba(118, 75, 162, 0.5);
+}
+
+button:hover,
+button:focus {
+  background: #5b357d;
+  box-shadow: 0 8px 15px rgba(91, 53, 125, 0.7);
+  outline: none;
+}
+
+/* Message */
+#message {
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 1.2em;
+  text-align: center;
+  color: #28a745; /* Success green */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .form-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  form h2 {
+    font-size: 1.6rem;
+  }
+}
