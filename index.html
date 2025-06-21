@@ -2,42 +2,116 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Signup Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BLIQZ - Get Rewards by Spending Money</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <body>
+  <div class="container">
+    <div class="left-section">
+      <div class="social-links">
+        <a href="#" class="social-link">@bliqz.co</a>
+        <a href="#" class="social-link">@bliqzco</a>
+      </div>
+      <div class="logo">BL<span class="lightning">⚡</span>QZ</div>
+      <h1 class="main-headline">Turn Every Purchase Into Rewards</h1>
+      <p class="subtitle">
+        The revolutionary finance app that rewards you for every dollar you spend. Connect your cards, shop anywhere, earn everywhere.
+      </p>
+      <div class="benefits-grid">
+        <div class="benefit-item">⭐ Instant rewards on every purchase</div>
+        <div class="benefit-item">📊 Smart spending insights</div>
+        <div class="benefit-item">🏦 Works with any bank</div>
+        <div class="benefit-item">💰 Zero hidden fees</div>
+      </div>
+      <div class="social-proof">
+        <div class="avatars">
+          <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
+          <div class="avatar"></div><div class="avatar"></div>
+        </div>
+        <div class="proof-text">
+          <span class="proof-number">2,847</span> people already joined<br />
+          <small>Growing by 200+ daily</small>
+        </div>
+      </div>
+    </div>
 
-        <div class="logo-container">
-          <img src="BLIQZ.png" alt="BLIQZ Logo" />
+    <div class="right-section">
+      <div class="form-header">
+        <h2 class="form-title">Get Early Access</h2>
+        <p class="form-subtitle">Join the waitlist and be among the first to experience the future of spending</p>
+        <div class="waitlist-benefits">
+          <div class="benefit-title">🎯 Waitlist Perks</div>
+          <div class="benefit-list">Early access • 3 months free premium • Exclusive features • VIP support</div>
+        </div>
+      </div>
+
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email address" />
+        </div>
+        <button type="submit" class="cta-button pulse">🚀 Secure My Spot on the Waitlist</button>
+        <p id="message" style="margin-top: 15px; text-align: center;"></p>
+
+        <div class="launch-info">
+          Expected launch: <span class="launch-date">Q2 2025</span><br/>
+          <small>Be the first to know when we go live</small>
         </div>
 
-        <div class="headline-wrapper">
-            <h1>Get Rewards by Spending Money!</h1>
-            <p>Join the finance app that’s fast, secure, and built for everyone.</p>
-            <p><strong>Invite your friends and unlock early access!</strong></p>
+        <div class="share-section">
+          <div class="share-text">Help us spread the word!</div>
+          <div class="share-buttons">
+            <a href="#" class="share-btn" onclick="shareOnTwitter()">📱 Twitter</a>
+            <a href="#" class="share-btn" onclick="shareOnLinkedIn()">💼 LinkedIn</a>
+            <a href="#" class="share-btn" onclick="copyLink()">🔗 Copy Link</a>
           </div>
-      
-        <div class="form-wrapper">
-          <form id="signupForm" novalidate>
-            <h2>Sign Up</h2>
-      
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-      
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-      
-            <button type="submit">Join the Waitlist</button>
-      
-            <div id="message"></div>
-          </form>
         </div>
-      
-      </body>
-      
+      </form>
+    </div>
+  </div>
 
   <script src="script.js"></script>
+
+  <script>
+    // Optional helper functions for social sharing and live counter
+    function shareOnTwitter() {
+      const text = "Just joined the BLIQZ waitlist! 🚀 Can't wait to try it! #BLIQZ #Fintech";
+      const url = "https://bliqz.co";
+      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
+    }
+
+    function shareOnLinkedIn() {
+      const url = "https://bliqz.co";
+      const title = "BLIQZ - Get Rewards by Spending Money";
+      const summary = "Revolutionary finance app that rewards every purchase";
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`);
+    }
+
+    function copyLink() {
+      navigator.clipboard.writeText('https://bliqz.co').then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
+    }
+
+    // Dynamic counter
+    (function updateCounter() {
+      const counter = document.querySelector('.proof-number');
+      let count = 2847;
+      setInterval(() => {
+        count += Math.floor(Math.random() * 3) + 1;
+        counter.textContent = count.toLocaleString();
+      }, 30000);
+    })();
+  </script>
 </body>
 </html>
