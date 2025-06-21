@@ -51,7 +51,7 @@ body {
 }
 
 .lightning {
-  color: #FFD700;
+  color: black;
 }
 
 .main-headline {
@@ -86,7 +86,7 @@ body {
 
 .social-proof {
   display: flex;
-  align-items: center;
+  align-items: center; /* Vertically align avatars and text */
   gap: 15px;
   background: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -96,7 +96,7 @@ body {
 
 .avatars {
   display: flex;
-  margin-right: 10px;
+  margin: 0; /* Remove right margin */
 }
 
 .avatar {
@@ -105,7 +105,7 @@ body {
   border-radius: 50%;
   border: 2px solid white;
   margin-left: -10px;
-  background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4);
+  object-fit: cover;
 }
 
 .avatar:first-child {

@@ -4,19 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BLIQZ - Get Rewards by Spending Money</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 </head>
 <body>
   <div class="container">
     <div class="left-section">
-      <div class="social-links">
-        <a href="#" class="social-link">@bliqz.co</a>
-        <a href="#" class="social-link">@bliqzco</a>
-      </div>
+        <div class="social-links">
+            <a href="https://www.instagram.com/bliqz.co/" class="social-link">
+              <i class="fab fa-instagram"></i> @bliqz.co
+            </a>
+            <a href="https://x.com/Bliqzco" class="social-link">
+              <i class="fab fa-x-twitter"></i> @bliqzco
+            </a>
+          </div>
       <div class="logo">BL<span class="lightning">⚡</span>QZ</div>
       <h1 class="main-headline">Turn Every Purchase Into Rewards</h1>
       <p class="subtitle">
-        The revolutionary finance app that rewards you for every dollar you spend. Connect your cards, shop anywhere, earn everywhere.
+        The revolutionary finance app that rewards you for spending money. Connect your cards, shop anywhere, earn everywhere.
       </p>
       <div class="benefits-grid">
         <div class="benefit-item">⭐ Instant rewards on every purchase</div>
@@ -26,14 +32,18 @@
       </div>
       <div class="social-proof">
         <div class="avatars">
-          <div class="avatar"></div><div class="avatar"></div><div class="avatar"></div>
-          <div class="avatar"></div><div class="avatar"></div>
+          <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 1" />
+          <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 2" />
+          <img class="avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="User 3" />
+          <img class="avatar" src="https://randomuser.me/api/portraits/men/15.jpg" alt="User 4" />
+          <img class="avatar" src="https://randomuser.me/api/portraits/women/21.jpg" alt="User 5" />
         </div>
         <div class="proof-text">
           <span class="proof-number">2,847</span> people already joined<br />
           <small>Growing by 200+ daily</small>
         </div>
       </div>
+      
     </div>
 
     <div class="right-section">
@@ -59,16 +69,16 @@
         <p id="message" style="margin-top: 15px; text-align: center;"></p>
 
         <div class="launch-info">
-          Expected launch: <span class="launch-date">Q2 2025</span><br/>
+          Expected launch: <span class="launch-date">Q1 2026</span><br/>
           <small>Be the first to know when we go live</small>
         </div>
 
         <div class="share-section">
           <div class="share-text">Help us spread the word!</div>
           <div class="share-buttons">
-            <a href="#" class="share-btn" onclick="shareOnTwitter()">📱 Twitter</a>
-            <a href="#" class="share-btn" onclick="shareOnLinkedIn()">💼 LinkedIn</a>
-            <a href="#" class="share-btn" onclick="copyLink()">🔗 Copy Link</a>
+            <a href="https://www.instagram.com/" class="share-btn" onclick="shareOnInstagram()">📱 Instagram</a>
+            <a href="https://www.linkedin.com/feed/" class="share-btn" onclick="shareOnLinkedIn()">💼 LinkedIn</a>
+            <a href="https://www.bliqz.com/" class="share-btn" onclick="copyLink()">🔗 Copy Link</a>
           </div>
         </div>
       </form>
@@ -79,21 +89,21 @@
 
   <script>
     // Optional helper functions for social sharing and live counter
-    function shareOnTwitter() {
+    function shareOnX() {
       const text = "Just joined the BLIQZ waitlist! 🚀 Can't wait to try it! #BLIQZ #Fintech";
-      const url = "https://bliqz.co";
+      const url = "https://bliqz.com";
       window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
     }
 
     function shareOnLinkedIn() {
-      const url = "https://bliqz.co";
+      const url = "https://bliqz.com";
       const title = "BLIQZ - Get Rewards by Spending Money";
       const summary = "Revolutionary finance app that rewards every purchase";
       window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(summary)}`);
     }
 
     function copyLink() {
-      navigator.clipboard.writeText('https://bliqz.co').then(() => {
+      navigator.clipboard.writeText('https://bliqz.com').then(() => {
         const btn = event.target;
         const originalText = btn.textContent;
         btn.textContent = '✅ Copied!';
