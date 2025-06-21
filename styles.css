@@ -26,6 +26,7 @@ body {
 .headline-wrapper h1 {
   font-size: 2rem;
   margin-bottom: 0.4rem;
+  margin-top: 0;
 }
 
 .headline-wrapper p {
