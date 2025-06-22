@@ -277,9 +277,10 @@
         if (countDoc.exists()) {
           totalCount = countDoc.data().totalSignups + 1;
         } else {
-          // Initialize stats document
+          totalCount = 1;
           await setDoc(statsRef, {
-            totalSignups: 0,
+            totalSignups: totalCount,
+            totalSpots: totalCount,
             lastUpdated: serverTimestamp()
           });
         }
@@ -330,7 +331,7 @@
           const positionsGained = newReferralCount * 10;
           const newPosition = Math.max(1, referrerDoc.data().basePosition - referrerDoc.data().referralBoost - positionsGained);
           
-          await updateDoc(referrerDoc.ref, {
+          await updateDoc(doc(db, 'waitlist', referrerDoc.id), {
             referralCount: newReferralCount,
             position: newPosition
           });
