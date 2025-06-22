@@ -1,37 +1,47 @@
-const form = document.getElementById('signupForm');
-const message = document.getElementById('message');
+// script.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  orderBy,
+  onSnapshot
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
+const waitlistContainer = document.getElementById("waitlist");
 
-  if (!name || !email) {
-    message.textContent = 'Please fill in both fields.';
-    message.style.color = 'red';
-    return;
-  }
+const q = query(collection(db, "waitlist"), orderBy("createdAt"));
 
-  const formData = new FormData();
-  formData.append('entry.393281139', name);      // Name field entry ID
-  formData.append('entry.1043843901', email);    // Email field entry ID
+onSnapshot(q, (snapshot) => {
+  const waitlistData = [];
 
-  fetch('https://docs.google.com/forms/u/0/d/e/1FAIpQLSejH6rYKMPsPi9qBJx508V6CBHGuYxnn58N-0PvUmlNVsi2qg/formResponse', {
-    method: 'POST',
-    mode: 'no-cors',
-    body: formData
-  }).then(() => {
-    message.textContent = 'Thank you for signing up!';
-    message.style.color = 'green';
-    form.reset();
-  }).catch(() => {
-    message.textContent = 'Oops! Something went wrong.';
-    message.style.color = 'red';
+  snapshot.forEach((doc) => {
+    waitlistData.push({ id: doc.id, ...doc.data() });
+  });
+
+  // Sort again by createdAt timestamp just to be safe
+  waitlistData.sort((a, b) => {
+    const timeA = a.createdAt?.seconds || 0;
+    const timeB = b.createdAt?.seconds || 0;
+    return timeA - timeB;
+  });
+
+  // Calculate cumulative positions
+  let cumulativeSpots = 0;
+  waitlistData.forEach(user => {
+    const spots = user.spots || 0;
+    cumulativeSpots += spots;
+    user.position = cumulativeSpots;
+  });
+
+  // Display
+  waitlistContainer.innerHTML = ""; // Clear
+  waitlistData.forEach(user => {
+    const entry = document.createElement("p");
+    entry.textContent = `${user.email} — Position: ${user.position} — Spots: ${user.spots}`;
+    waitlistContainer.appendChild(entry);
   });
 });
-
-
-
-
-

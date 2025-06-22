@@ -30,7 +30,7 @@ body {
 .social-links {
   display: flex;
   gap: 15px;
-  margin-bottom: 40px;
+  margin-top: 60px;
 }
 
 .social-link {
@@ -55,8 +55,8 @@ body {
 }
 
 .main-headline {
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 700;
   background: linear-gradient(45deg, #FFD700, #FFA500);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -75,6 +75,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 40px;
+  color: white;
 }
 
 .benefit-item {
@@ -115,6 +116,7 @@ body {
 .proof-text {
   font-size: 0.95rem;
   opacity: 0.9;
+  color: white;
 }
 
 .proof-number {
@@ -123,11 +125,100 @@ body {
 }
 
 .right-section {
+  background: rgba(255, 255, 255, 0.1); /* subtle transparent bg */
+  padding: 40px 30px 30px 30px; /* add some padding for spacing */
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.email-form-container {
   background: white;
   padding: 50px;
   border-radius: 24px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
 }
+
+/* Target the form directly inside your container or by class */
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center input and button horizontally */
+  max-width: 320px;
+  margin: 0 auto; /* center form container itself if needed */
+  padding-left: 0; /* remove any left padding */
+}
+
+.email-form .form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* label stays left */
+  margin-bottom: 25px;
+  padding-left: 0; /* remove any left padding */
+}
+
+.email-form .form-group label {
+  width: 100%;
+  text-align: left; /* make sure label text is flush left */
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  padding-left: 0; /* no padding */
+  margin-left: 0; /* no margin */
+}
+
+.email-form .form-group input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  background: #fafbfc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.email-form .cta-button {
+  width: 100%; /* full width button within the max 320px */
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  margin-bottom: 20px;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+
+
+/* Inline minimal CSS for white background on form container */
+.form-container-white-bg {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-top: 20px;
+
+}
+
+.right-section .subtitle-right {
+  margin-top: 0;
+  margin-bottom: 30px; /* more breathing room */
+  font-size: 1.4rem;
+  color: #eee; /* slightly brighter */
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Optional: constrain form width on left */
+.left-section form {
+  max-width: 420px;
+}
+
+
 
 .form-header {
   text-align: center;
@@ -183,7 +274,13 @@ body {
   border-radius: 12px;
   background: #fafbfc;
   font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
+.cta-button:focus, .share-btn:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
 
 .form-group input:focus {
   outline: none;
@@ -224,26 +321,26 @@ body {
 
 .share-section {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 10px;
   border-top: 1px solid #e1e5e9;
 }
 
 .share-text {
   font-size: 0.9rem;
   color: #666;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .share-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
 }
 
 .share-btn {
   padding: 10px 15px;
   border: 1px solid #e1e5e9;
-  border-radius: 8px;
+  border-radius: 5px;
   text-decoration: none;
   color: #666;
   font-size: 0.9rem;
@@ -254,6 +351,42 @@ body {
   background: #f5f5f5;
   border-color: #667eea;
   color: #667eea;
+  cursor: pointer;
+}
+
+.queue-position {
+  text-align: center;
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+}
+.queue-position div {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.queue-position p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.centered-texts {
+  text-align: center;
+  margin-top: 15px;
+  color: #fff; /* or a suitable color for readability */
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(102, 126, 234, 0.7);}
+  50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(102, 126, 234, 0.7);}
+}
+
+.cta-button.pulse {
+  animation: pulse 2.5s infinite ease-in-out;
 }
 
 @media (max-width: 768px) {

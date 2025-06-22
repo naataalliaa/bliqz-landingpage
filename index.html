@@ -2,35 +2,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>BLIQZ - Get Rewards by Spending Money</title>
   <link rel="icon" href="favicon2.png" type="image/png" />
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
   
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID'); // Replace with your actual GA4 ID
+  </script>
 </head>
 <body>
   <div class="container">
     <div class="left-section">
-        <div class="social-links">
-            <a href="https://www.instagram.com/bliqz.co/" class="social-link">
-              <i class="fab fa-instagram"></i> @bliqz.co
-            </a>
-            <a href="https://x.com/Bliqzco" class="social-link">
-              <i class="fab fa-x-twitter"></i> @bliqzco
-            </a>
-          </div>
       <div class="logo">BL<span class="lightning">⚡</span>QZ</div>
       <h1 class="main-headline">Turn Every Purchase Into Rewards</h1>
-      <p class="subtitle">
+
+      <div class="form-container-white-bg">
+        <div class="form-header">
+          <h2 class="form-title">Waitlist</h2>
+        </div>
+
+        <!-- Initial signup form -->
+        <div id="signup-form">
+          <form class="email-form">
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Enter your email address"
+              />
+            </div>
+          
+            <button type="submit" class="cta-button pulse" id="join-btn">
+              <span id="join-text">🚀 Join the Waitlist</span>
+            </button>
+          </form>
+          
+          <div class="centered-texts">
+            <p id="message" style="margin-top: 15px;"></p>
+        
+            <div class="launch-info" style="margin-top: 15px;">
+              Expected launch: <span class="launch-date">Q1 2026</span><br/>
+            </div>
+        
+            <div class="share-section" style="margin-top: 20px;">
+              <div class="share-buttons">
+                <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Success state with queue position -->
+        <div id="success-state" style="display: none;">
+          <div class="queue-position" style="text-align: center; margin: 20px 0; padding: 20px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 12px; color: white;">
+            <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 10px;">
+              #<span id="position">...</span>
+            </div>
+            <p style="margin: 0; font-size: 1.1rem;">Your position in line</p>
+          </div>
+          
+          <div style="background: #e8f5e8; padding: 15px; border-radius: 8px; margin: 15px 0; color: #2e7d32; text-align: center;">
+            <p style="margin: 0;">🎉 You're in! We'll notify you when it's your turn.</p>
+          </div>
+
+          <!-- Referral section -->
+          <div class="referral-section" style="background: #f5f5f5; padding: 20px; border-radius: 12px; margin: 20px 0; text-align: center;">
+            <h3 style="margin: 0 0 10px 0; color: #333;">🚀 Skip the Line!</h3>
+            <p style="margin: 0 0 15px 0; color: #666; font-size: 0.9rem;">Share your unique link. For every friend who joins, you move up 10 spots!</p>
+            
+            <div class="referral-stats" style="background: #fff; padding: 10px; border-radius: 6px; margin: 10px 0; font-size: 0.9rem; color: #333;">
+              <strong>Referrals: <span id="referral-count">0</span></strong><br>
+              <small>Positions gained: <span id="positions-gained">0</span></small>
+            </div>
+            
+            <div class="referral-link" style="background: #fff; padding: 12px; border-radius: 6px; margin: 10px 0; word-break: break-all; font-family: monospace; font-size: 0.8rem; color: #333; border: 1px solid #ddd;" id="referral-link">
+              Loading your unique link...
+            </div>
+            
+            <div style="margin-top: 15px;">
+              <button onclick="copyReferralLink()" style="background: #667eea; color: white; border: none; padding: 8px 16px; border-radius: 6px; margin: 0 5px; cursor: pointer; font-size: 0.9rem;">Copy Link</button>
+            </div>
+          </div>
+
+          <div class="launch-info" style="margin-top: 15px; text-align: center;">
+            Expected launch: <span class="launch-date">Q1 2026</span><br/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <p class="subtitle-right">
         The revolutionary finance app that rewards you for spending money. Connect your cards, shop anywhere, earn everywhere.
       </p>
+
       <div class="benefits-grid">
         <div class="benefit-item">⭐ Instant rewards on every purchase</div>
         <div class="benefit-item">📊 Smart spending insights</div>
         <div class="benefit-item">🏦 Works with any bank</div>
         <div class="benefit-item">💰 Zero hidden fees</div>
       </div>
+
       <div class="social-proof">
         <div class="avatars">
           <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 1" />
@@ -40,60 +126,319 @@
           <img class="avatar" src="https://randomuser.me/api/portraits/women/21.jpg" alt="User 5" />
         </div>
         <div class="proof-text">
-          <span class="proof-number">2,847</span> people already joined<br />
+          <span class="proof-number" id="live-counter">2,847</span> people already joined<br />
           <small>Growing by 200+ daily</small>
         </div>
       </div>
       
-    </div>
-
-    <div class="right-section">
-      <div class="form-header">
-        <h2 class="form-title">Get Early Access</h2>
-        <p class="form-subtitle">Join the waitlist and be among the first to experience the future of spending</p>
-        <div class="waitlist-benefits">
-          <div class="benefit-title">🎯 Waitlist Perks</div>
-          <div class="benefit-list">Early access • 3 months free premium • Exclusive features • VIP support</div>
-        </div>
+      <div class="social-links">
+        <a href="https://www.instagram.com/bliqz.co/" class="social-link">
+          <i class="fab fa-instagram"></i> @bliqz.co
+        </a>
+        <a href="https://x.com/Bliqzco" class="social-link">
+          <i class="fab fa-x-twitter"></i> @bliqzco
+        </a>
       </div>
-
-      <form id="signupForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required placeholder="Enter your full name" />
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required placeholder="Enter your email address" />
-        </div>
-        <button type="submit" class="cta-button pulse">🚀 Secure My Spot on the Waitlist</button>
-        <p id="message" style="margin-top: 15px; text-align: center;"></p>
-
-        <div class="launch-info">
-          Expected launch: <span class="launch-date">Q1 2026</span><br/>
-          <small>Be the first to know when we go live</small>
-        </div>
-
-        <div class="share-section">
-          <div class="share-text">Help us spread the word!</div>
-          <div class="share-buttons">
-            <a href="https://www.instagram.com/" class="share-btn" onclick="shareOnInstagram()">📱 Instagram</a>
-            <a href="https://www.linkedin.com/feed/" class="share-btn" onclick="shareOnLinkedIn()">💼 LinkedIn</a>
-            <a href="https://www.bliqz.com/" class="share-btn" onclick="copyLink()">🔗 Copy Link</a>
-          </div>
-        </div>
-      </form>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Firebase v9 Modular SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+    import { 
+      getFirestore, 
+      collection, 
+      query, 
+      where, 
+      getDocs, 
+      doc, 
+      getDoc, 
+      setDoc, 
+      addDoc, 
+      updateDoc, 
+      serverTimestamp 
+    } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDgd4EiUhZH1AIyQcUumWwKFYOrXTgfWXU",
+      authDomain: "waitlist-c42a4.firebaseapp.com",
+      projectId: "waitlist-c42a4",
+      storageBucket: "waitlist-c42a4.firebasestorage.app",
+      messagingSenderId: "162480670489",
+      appId: "1:162480670489:web:5e3170e3c5615dbbc62788",
+      measurementId: "G-EKR4JNKZ3D"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getFirestore(app);
+
+    // Make Firebase available globally
+    window.firebaseApp = app;
+    window.firebaseDb = db;
+    window.firebaseAnalytics = analytics;
+
+    // Global variables
+    let currentUser = null;
+
+    // Utility functions
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function generateReferralCode() {
+      return Math.random().toString(36).substring(2, 8).toUpperCase();
+    }
+
+    function getUrlParameter(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    function showMessage(message, type) {
+      const messageEl = document.getElementById('message');
+      messageEl.textContent = message;
+      messageEl.style.color = type === 'error' ? '#d32f2f' : '#2e7d32';
+    }
+
+    function showSuccessState() {
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+      
+      // Update position
+      document.getElementById('position').textContent = currentUser.position.toLocaleString();
+      
+      // Update referral stats
+      document.getElementById('referral-count').textContent = currentUser.referralCount || 0;
+      document.getElementById('positions-gained').textContent = (currentUser.referralCount || 0) * 10;
+      
+      // Update referral link
+      const referralLink = `${window.location.origin}${window.location.pathname}?ref=${currentUser.referralCode}`;
+      document.getElementById('referral-link').textContent = referralLink;
+    }
+
+    // Main waitlist join function
+    async function joinWaitlist(event) {
+      event.preventDefault();
+      
+      const email = document.getElementById('email').value.trim();
+      const joinBtn = document.getElementById('join-btn');
+      const joinText = document.getElementById('join-text');
+      const messageEl = document.getElementById('message');
+      
+      // Clear previous messages
+      messageEl.textContent = '';
+      messageEl.style.color = '';
+      
+      if (!email || !isValidEmail(email)) {
+        showMessage('Please enter a valid email address', 'error');
+        return;
+      }
+
+      // Show loading state
+      joinBtn.disabled = true;
+      joinText.innerHTML = '⏳ Joining...';
+
+      try {
+        // Check if email already exists
+        const waitlistRef = collection(db, 'waitlist');
+        const q = query(waitlistRef, where('email', '==', email.toLowerCase()));
+        const existingUserSnapshot = await getDocs(q);
+
+        if (!existingUserSnapshot.empty) {
+          // User already exists, show their position
+          const userData = existingUserSnapshot.docs[0].data();
+          currentUser = { id: existingUserSnapshot.docs[0].id, ...userData };
+          showSuccessState();
+          return;
+        }
+
+        // Get referrer info
+        const referrer = getUrlParameter('ref');
+        let referrerDoc = null;
+        
+        if (referrer) {
+          const referrerQuery = query(waitlistRef, where('referralCode', '==', referrer));
+          const referrerSnapshot = await getDocs(referrerQuery);
+          
+          if (!referrerSnapshot.empty) {
+            referrerDoc = referrerSnapshot.docs[0];
+          }
+        }
+
+        // Get current total count
+        const statsRef = doc(db, 'metadata', 'stats');
+        const countDoc = await getDoc(statsRef);
+        let totalCount = 0; // Start from your current count
+        
+        if (countDoc.exists()) {
+          totalCount = countDoc.data().totalSignups + 1;
+        } else {
+          // Initialize stats document
+          await setDoc(statsRef, {
+            totalSignups: 0,
+            lastUpdated: serverTimestamp()
+          });
+        }
+
+        // Generate unique referral code
+        const referralCode = generateReferralCode();
+        
+        // Calculate position (with referral boost)
+        let basePosition = totalCount;
+        let referralBoost = 0;
+        
+        if (referrerDoc) {
+          referralBoost = 5; 
+        }
+        
+        const finalPosition = Math.max(1, basePosition - referralBoost);
+
+        // Create user document
+        const userData = {
+          email: email.toLowerCase(),
+          referralCode: referralCode,
+          position: finalPosition,
+          basePosition: basePosition,
+          referralBoost: referralBoost,
+          referredBy: referrer || null,
+          referralCount: 0,
+          joinedAt: serverTimestamp(),
+          ipAddress: null
+        };
+
+        // Save user to database
+        const userRef = await addDoc(collection(db, 'waitlist'), userData);
+        currentUser = { id: userRef.id, ...userData };
+
+        // Update total count
+        await updateDoc(statsRef, {
+          totalSignups: totalCount,
+          lastUpdated: serverTimestamp()
+        });
+
+        // Update live counter
+        document.getElementById('live-counter').textContent = totalCount.toLocaleString();
+
+        // If user was referred, update referrer's stats
+        if (referrerDoc) {
+          const currentReferralCount = referrerDoc.data().referralCount || 0;
+          const newReferralCount = currentReferralCount + 1;
+          const positionsGained = newReferralCount * 10;
+          const newPosition = Math.max(1, referrerDoc.data().basePosition - referrerDoc.data().referralBoost - positionsGained);
+          
+          await updateDoc(referrerDoc.ref, {
+            referralCount: newReferralCount,
+            position: newPosition
+          });
+
+          // Track referral in GA
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'referral_signup', {
+              referrer_code: referrer
+            });
+          }
+        }
+
+        // Track signup in GA
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'sign_up', {
+            method: 'waitlist',
+            custom_parameter_1: referrer || 'direct'
+          });
+        }
+
+        showSuccessState();
+
+      } catch (error) {
+        console.error('Error joining waitlist:', error);
+        showMessage('Something went wrong. Please try again.', 'error');
+      } finally {
+        // Reset button state
+        joinBtn.disabled = false;
+        joinText.innerHTML = '🚀 Join the Waitlist';
+      }
+    }
+
+    // Make functions available globally
+    window.joinWaitlist = joinWaitlist;
+    window.currentUser = currentUser;
+
+    // Attach event listener to form
+    document.querySelector('.email-form').addEventListener('submit', joinWaitlist);
+
+    // Dynamic counter (enhanced to sync with Firebase)
+    async function updateCounter() {
+      const counter = document.querySelector('.proof-number');
+      let count = 0;
+      counter.textContent = count.toLocaleString();
+      
+      try {
+        const statsRef = doc(db, 'metadata', 'stats');
+        const statsDoc = await getDoc(statsRef);
+        if (statsDoc.exists()) {
+          count = statsDoc.data().totalSignups;
+          counter.textContent = count.toLocaleString();
+        }
+      } catch (error) {
+        // Fallback to incremental counter if Firebase fails
+        setInterval(() => {
+          count += Math.floor(Math.random() * 3) + 1;
+          counter.textContent = count.toLocaleString();
+        }, 30000);
+      }
+    }
+
+    // Initialize counter
+    updateCounter();
+
+    // Check if user came from referral on page load
+    const referrer = getUrlParameter('ref');
+    if (referrer && typeof gtag !== 'undefined') {
+      gtag('event', 'referral_visit', {
+        referrer_code: referrer
+      });
+    }
+  </script>
 
   <script>
-    // Optional helper functions for social sharing and live counter
+    // Global utility functions (non-module)
+    function copyReferralLink() {
+      const referralLink = document.getElementById('referral-link').textContent;
+      navigator.clipboard.writeText(referralLink).then(() => {
+        const btn = event.target;
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copied!';
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+        
+        // Track copy event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'share', {
+            method: 'copy',
+            content_type: 'referral_link'
+          });
+        }
+      }).catch(() => {
+        alert('Please copy this link: ' + referralLink);
+      });
+    }
+
+    function shareOnTwitter() {
+      const referralLink = document.getElementById('referral-link').textContent;
+      const text = "Just joined the BLIQZ waitlist! 🚀 Revolutionary fintech app that rewards every purchase. Join me and skip the line!";
+      window.open(twitterUrl, '_blank');
+      
+      
+    }
+
     function shareOnX() {
       const text = "Just joined the BLIQZ waitlist! 🚀 Can't wait to try it! #BLIQZ #Fintech";
       const url = "https://bliqz.com";
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`);
     }
 
     function shareOnLinkedIn() {
@@ -111,19 +456,10 @@
         setTimeout(() => {
           btn.textContent = originalText;
         }, 2000);
+      }).catch(() => {
+        alert('Please copy this link: https://bliqz.com');
       });
     }
-
-    // Dynamic counter
-    (function updateCounter() {
-      const counter = document.querySelector('.proof-number');
-      let count = 3845;
-      counter.textContent = count.toLocaleString();
-      setInterval(() => {
-        count += Math.floor(Math.random() * 3) + 1;
-        counter.textContent = count.toLocaleString();
-      }, 30000);
-    })();
   </script>
 </body>
 </html>
