@@ -57,6 +57,7 @@ exports.sendThankYouEmail = functions.firestore
         templateId: JOIN_WAITLIST_TEMPLATE_ID,
         dynamic_template_data: {
           position,
+          referralCode: data.referralCode,
         },
       };
 
@@ -92,6 +93,7 @@ exports.sendPositionUpdateEmail = functions.firestore
         dynamic_template_data: {
           oldPos,
           newPos,
+          referralCode: after.referralCode,
         },
       };
 
