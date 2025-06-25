@@ -63,7 +63,14 @@ body {
   background-clip: text;
   margin-bottom: 20px;
 }
-
+.right-section small {
+  position: relative;
+  top: -15px; /* Adjust this value to move it higher or lower */
+  display: inline-block; /* ensure position works well */
+  font-size: 0.99em; /* keep small size or adjust if needed */
+  color: #f6eef9; /* optional, for better styling */
+  text-decoration: underline;
+}
 .subtitle {
   font-size: 1.3rem;
   opacity: 0.9;
@@ -117,6 +124,12 @@ body {
   font-size: 0.95rem;
   opacity: 0.9;
   color: white;
+  margin-top: 0px;
+}
+#static-small-text {
+  display: block;   /* makes margin-top work */
+  margin-top: 15px;  /* adjust value as needed */
+  color: #f6eef9;
 }
 
 .proof-number {

@@ -19,7 +19,7 @@
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID'); // Replace with your actual GA4 ID
+    gtag('config', 'G-EKR4JNKZ3D'); // Replace with your actual GA4 ID
   </script>
 </head>
 <body>
@@ -107,13 +107,14 @@
 
     <div class="right-section">
       <p class="subtitle-right">
-        The revolutionary finance app that rewards you for spending money. Connect your cards, shop anywhere, earn everywhere.
+        Unlock Premium with Points You Earn While Spending
       </p>
+      <small>Earn 1 Point per $1 (Personal) or 1.5 Points per $1 (Business)</small>
 
       <div class="benefits-grid">
-        <div class="benefit-item">⭐ Instant rewards on every purchase</div>
+        <div class="benefit-item">⭐ Earn points on every purchase</div>
         <div class="benefit-item">📊 Smart spending insights</div>
-        <div class="benefit-item">🏦 Works with any bank</div>
+        <div class="benefit-item">🎯 Unlock premium features with points</div>
         <div class="benefit-item">💰 Zero hidden fees</div>
       </div>
 
@@ -126,8 +127,8 @@
           <img class="avatar" src="https://randomuser.me/api/portraits/women/21.jpg" alt="User 5" />
         </div>
         <div class="proof-text">
-          <span class="proof-number" id="live-counter">2,847</span> people already joined<br />
-          <small>Growing by 200+ daily</small>
+          <span class="proof-number" id="live-counter">500</span> people already joined<br />
+          <small id="static-small-text">Growing by 30+ daily</small>
         </div>
       </div>
       
@@ -272,7 +273,7 @@
         // Get current total count
         const statsRef = doc(db, 'metadata', 'stats');
         const countDoc = await getDoc(statsRef);
-        let totalCount = 0; // Start from your current count
+        let totalCount = 500; // Start from your current count
         
         if (countDoc.exists()) {
           totalCount = countDoc.data().totalSignups + 1;
